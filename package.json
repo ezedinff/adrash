@@ -1,0 +1,24 @@
+{
+  "name": "adrash",
+  "version": "1.0.0",
+  "description": "telegram bot to collect data for final year project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezedinff/adrash.git"
+  },
+  "keywords": [
+    "bot",
+    "telgram",
+    "bot"
+  ],
+  "author": "ezedin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ezedinff/adrash/issues"
+  },
+  "homepage": "https://github.com/ezedinff/adrash#readme"
+}
