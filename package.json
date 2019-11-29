@@ -4,7 +4,10 @@
   "description": "telegram bot to collect data for final year project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "11"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/ezedinff/adrash/issues"
   },
-  "homepage": "https://github.com/ezedinff/adrash#readme"
+  "homepage": "https://github.com/ezedinff/adrash#readme",
+  "dependencies": {
+    "telegraf": "^3.34.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-plugin-promise": "^3.6.0"
+  }
 }
