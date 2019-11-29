@@ -18,7 +18,7 @@ bot.command('register', (ctx) => {
             ])
     }))
 });
-bot.hears('Location', (ctx) =>
+bot.hears('Send location', (ctx) =>
     ctx.reply(`please Enter place name`)
 );
 bot.on('text', (ctx) => {
