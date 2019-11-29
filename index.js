@@ -3,12 +3,11 @@ const Extra = require('telegraf/extra');
 const Markup = require('telegraf/markup');
 const bot = new Telegraf('649515347:AAGFcnAi7olLsuxlZa4aQHesCkWcdxCmYAs');
 bot.command('start', ( ctx ) =>
-    ctx.reply(`welcome <b>${ctx.from.first_name}!</b> \nwe are glad to have u as contributor`, Markup
+    ctx.replyWithHTML(`welcome <b>${ctx.from.first_name}!</b> \nwe are glad to have u as contributor`, Markup
         .keyboard(['/register'])
         .oneTime()
         .resize()
-        .extra(),
-        Extra.HTML()
+        .extra()
     )
 );
 bot.command('register', ({reply}) =>
