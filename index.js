@@ -18,9 +18,9 @@ bot.command('register', ({reply}) =>
             .extra()
     )
 );
-bot.command('My Location', (ctx) =>
+bot.command('Location', (ctx) =>
     ctx.reply(`successfully set location. ${JSON.stringify(ctx)} please Enter place name`,
-        Markup.keyboard([{text: 'My Location', request_location: true}])
+        Markup.keyboard([{text: '/Location', request_location: true}])
             .oneTime()
             .resize()
             .extra()
