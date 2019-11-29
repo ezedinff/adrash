@@ -16,13 +16,10 @@ bot.command('register', (ctx) => {
             .keyboard([
                 markup.locationRequestButton('Send location')
             ])
-    })).then(async (location) => {
-       await ctx.reply(`please Enter place name ${JSON.stringify(location)}`);
+    })).then((location) => {
+       return ctx.reply(`please Enter place name ${JSON.stringify(location)}`);
     })
 });
-bot.telegram.('Send location', (ctx) =>
-    ctx.reply(`please Enter place name`)
-);
 bot.on('text', (ctx) => {
     return ctx.reply('This city is not exists');
 });
