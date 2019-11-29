@@ -10,16 +10,16 @@ bot.command('start', ( ctx ) =>
         .extra()
     )
 );
-bot.command('register', ({reply}) =>
-    reply('Enter your location',
-        Markup.keyboard([{text: 'Location', request_location: true}])
-            .oneTime()
-            .resize()
-            .extra()
-    )
-);
+bot.command('register', (ctx) => {
+    return ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
+        return markup.resize()
+            .keyboard([
+                markup.locationRequestButton('Send location')
+            ])
+    }))
+});
 bot.hears('Location', (ctx) =>
-    ctx.reply(`successfully set location. ${JSON.stringify(ctx)} please Enter place name`)
+    ctx.reply(`please Enter place name`)
 );
 bot.on('text', (ctx) => {
     return ctx.reply('This city is not exists');
