@@ -11,15 +11,14 @@ bot.command('start', ( ctx ) =>
     )
 );
 bot.command('register', (ctx) => {
-    ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
+    return ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
         return markup.resize()
             .keyboard([
                 markup.locationRequestButton('Send location')
             ])
-    })).then((location) => {
-       return ctx.reply(`please Enter place name ${JSON.stringify(location)}`);
-    })
+    }));
 });
+bot.action('Send location', (ctx) => ctx.reply(`${JSON.stringify(ctx)}`));
 bot.on('text', (ctx) => {
     return ctx.reply('This city is not exists');
 });
