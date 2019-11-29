@@ -18,6 +18,14 @@ bot.command('register', ({reply}) =>
             .extra()
     )
 );
+bot.command('My Location', (ctx) =>
+    ctx.reply(`successfully set location. ${JSON.stringify(ctx)} please Enter place name`,
+        Markup.keyboard([{text: 'My Location', request_location: true}])
+            .oneTime()
+            .resize()
+            .extra()
+    )
+);
 bot.on('text', (ctx) => {
     return ctx.reply('This city is not exists');
 });
