@@ -12,13 +12,13 @@ bot.command('start', ( ctx ) =>
 );
 bot.command('register', ({reply}) =>
     reply('Enter your location',
-        Markup.keyboard([{text: '/Location', request_location: true}])
+        Markup.keyboard([{text: 'Location', request_location: true}])
             .oneTime()
             .resize()
             .extra()
     )
 );
-bot.command('Location', (ctx) =>
+bot.hears('Location', (ctx) =>
     ctx.reply(`successfully set location. ${JSON.stringify(ctx)} please Enter place name`)
 );
 bot.on('text', (ctx) => {
