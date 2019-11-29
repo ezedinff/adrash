@@ -11,14 +11,16 @@ bot.command('start', ( ctx ) =>
     )
 );
 bot.command('register', (ctx) => {
-    return ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
+    ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
         return markup.resize()
             .keyboard([
                 markup.locationRequestButton('Send location')
             ])
-    }))
+    })).then(async (location) => {
+       await ctx.reply(`please Enter place name ${JSON.stringify(location)}`);
+    })
 });
-bot.hears('Send location', (ctx) =>
+bot.telegram.('Send location', (ctx) =>
     ctx.reply(`please Enter place name`)
 );
 bot.on('text', (ctx) => {
