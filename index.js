@@ -12,19 +12,14 @@ bot.command('start', ( ctx ) =>
 );
 bot.command('register', ({reply}) =>
     reply('Enter your location',
-        Markup.keyboard([{text: 'My Location', request_location: true}])
+        Markup.keyboard([{text: '/Location', request_location: true}])
             .oneTime()
             .resize()
             .extra()
     )
 );
 bot.command('Location', (ctx) =>
-    ctx.reply(`successfully set location. ${JSON.stringify(ctx)} please Enter place name`,
-        Markup.keyboard([{text: '/Location', request_location: true}])
-            .oneTime()
-            .resize()
-            .extra()
-    )
+    ctx.reply(`successfully set location. ${JSON.stringify(ctx)} please Enter place name`)
 );
 bot.on('text', (ctx) => {
     return ctx.reply('This city is not exists');
