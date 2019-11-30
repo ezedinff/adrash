@@ -11,19 +11,14 @@ bot.command('start', ( ctx ) =>
     )
 );
 bot.command('register', (ctx) => {
-    ctx.reply('Enter the location? ', Markup
-        .keyboard([
-[            {
-    text: 'Send Location',
-    request_location: true
-}
-]
-        ])
-        .oneTime()
-        .extra())
+    return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
+        m.inlineKeyboard([
+            m.callbackButton('Coke', 'Coke'),
+            m.callbackButton('Pepsi', 'Pepsi')
+        ])))
 });
 bot.action('Send location', (ctx) => ctx.reply(`${JSON.stringify(ctx)}`));
-bot.on('text', (ctx) => {
-    return ctx.reply('This city is not exists');
+bot.on('message', (ctx) => {
+    return ctx.reply(JSON.stringify(ctx));
 });
 bot.launch();
