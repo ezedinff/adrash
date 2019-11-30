@@ -21,7 +21,7 @@ bot.action('Register',  (ctx, next) => {
 
 // Greeter scene
 const greeter = new Scene('registration');
-greeter.enter((ctx) => ctx.reply('we are glad to have u as contributor',
+greeter.enter((ctx) =>     ctx.replyWithHTML(`welcome <b>${ctx.from.first_name}!</b> \nwe are glad to have u as contributor`,
     Extra.HTML().markup((m) =>
         m.keyboard([
             m.locationRequestButton('Send 📍'),
@@ -38,9 +38,6 @@ stage.command('cancel', leave());
 // Scene registration
 stage.register(greeter)
 const bot = new Telegraf('649515347:AAGFcnAi7olLsuxlZa4aQHesCkWcdxCmYAs');
-bot.command('start', ( ctx ) =>
-    ctx.replyWithHTML(`welcome <b>${ctx.from.first_name}!</b> \n`)
-);
 bot.use(session());
 bot.use(stage.middleware());
 bot.command('register', (ctx) => ctx.scene.enter('registration'))
