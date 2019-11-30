@@ -11,12 +11,11 @@ bot.command('start', ( ctx ) =>
     )
 );
 bot.command('register', (ctx) => {
-    return ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
-        return markup.resize()
-            .keyboard([
-                markup.locationRequestButton('Send location', ctx.reply(`${JSON.stringify(ctx)}`))
-            ])
-    }));
+    return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
+        m.keyboard([
+            m.locationRequestButton(m.callbackButton('send Location', 'Coke'))
+        ])
+    ))
 });
 bot.action('Send location', (ctx) => ctx.reply(`${JSON.stringify(ctx)}`));
 bot.on('text', (ctx) => {
