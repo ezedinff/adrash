@@ -13,8 +13,7 @@ bot.command('start', ( ctx ) =>
 bot.command('register', (ctx) => {
     return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
         m.inlineKeyboard([
-            m.callbackButton('Coke', 'Coke'),
-            m.callbackButton('Pepsi', 'Pepsi')
+            m.callbackButton({ text: '😇 Register an 🏧 📍', callback_data: JSON.stringify({ type: 'A', l: [ctx.location.latitude, ctx.location.longitude] }) }),
         ])))
 });
 bot.action('Coke',  (ctx, next) => {
