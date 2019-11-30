@@ -14,7 +14,7 @@ bot.command('register', (ctx) => {
     return ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
         return markup.resize()
             .keyboard([
-                markup.locationRequestButton('Send location')
+                markup.locationRequestButton('Send location', ctx.reply(`${JSON.stringify(ctx)}`))
             ])
     }));
 });
