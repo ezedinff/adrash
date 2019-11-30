@@ -13,7 +13,7 @@ bot.command('start', ( ctx ) =>
 bot.command('register', (ctx) => {
     return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
         m.inlineKeyboard([
-            m.callbackButton({ text: '😇 Register an 🏧 📍', callback_data: 'register'}),
+            m.callbackButton('Register', 'register'),
         ])))
 });
 bot.action('😇 Register an 🏧 📍',  (ctx, next) => {
