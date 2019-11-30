@@ -11,11 +11,13 @@ bot.command('start', ( ctx ) =>
     )
 );
 bot.command('register', (ctx) => {
-    return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
+    ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
         m.keyboard([
             m.locationRequestButton('Send 📍'),
-        ]).oneTime(false).callbackButton('Register', 'Register', false)
-    ))
+        ]).oneTime(false)
+    )).then((msg) => {
+        return ctx.reply(String(msg.location.latitude))
+    }, () => ctx.reply(JSON.stringify(msg)))
 });
 bot.action('Register',  (ctx, next) => {
   return ctx.reply('👍 hi ' + ctx.longitude).then(next)
