@@ -27,8 +27,6 @@ greeter.enter((ctx) =>     ctx.replyWithHTML(`welcome <b>${ctx.from.first_name}!
             m.locationRequestButton('Send 📍'),
         ]).oneTime(false)
     )));
-greeter.leave((ctx) => ctx.reply('Bye'));
-greeter.hears(/hi/gi, leave());
 greeter.on('message', (ctx) => ctx.reply('Send hi' + JSON.stringify(ctx)));
 
 // Create scene manager
@@ -36,7 +34,7 @@ const stage = new Stage();
 stage.command('cancel', leave());
 
 // Scene registration
-stage.register(greeter)
+stage.register(greeter);
 const bot = new Telegraf('649515347:AAGFcnAi7olLsuxlZa4aQHesCkWcdxCmYAs');
 bot.use(session());
 bot.use(stage.middleware());
