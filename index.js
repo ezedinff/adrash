@@ -16,8 +16,14 @@ bot.command('register', (ctx) => {
             .keyboard([
                 markup.locationRequestButton('Send location')
             ])
-            .callbackButton('Send location', 'Send location', true)
-    }));
+            .oneTime()
+            .extra()
+    })).then((msg) => {
+       return ctx.reply(
+            strings(ctx.dbchat, 'greetsUsers_message_accepted'),
+            Extra.inReplyTo(msg.message_id)
+        )
+    });
 });
 bot.action('Send location', (ctx) => ctx.reply(`${JSON.stringify(ctx)}`));
 bot.on('text', (ctx) => {
