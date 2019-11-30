@@ -8,7 +8,9 @@ module.exports = (bot, config, firebase) => (callbackQuery) => {
     // add new ATM...
     case 'A':
       try {
-          A(config, bot, callbackQuery, firebase);
+          A(config, bot, callbackQuery, firebase, (d) => {
+              B(config, bot, d, firebase);
+          });
       } catch (e) {
         console.log('hmm');
       }
@@ -16,7 +18,6 @@ module.exports = (bot, config, firebase) => (callbackQuery) => {
 
     // add new ATM [finalization]
     case 'B':
-      B(config, bot, callbackQuery, firebase);
       return;
 
     default:
