@@ -5,10 +5,7 @@ const session = require('telegraf/session');
 const Stage = require('telegraf/stage');
 const Scene = require('telegraf/scenes/base');
 const { leave } = Stage
-const bot = new Telegraf('649515347:AAGFcnAi7olLsuxlZa4aQHesCkWcdxCmYAs');
-bot.command('start', ( ctx ) =>
-    ctx.replyWithHTML(`welcome <b>${ctx.from.first_name}!</b> \n`)
-);
+
 /*bot.command('register', (ctx) => {
     ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
         m.keyboard([
@@ -40,8 +37,10 @@ stage.command('cancel', leave());
 
 // Scene registration
 stage.register(greeter)
-
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf('649515347:AAGFcnAi7olLsuxlZa4aQHesCkWcdxCmYAs');
+bot.command('start', ( ctx ) =>
+    ctx.replyWithHTML(`welcome <b>${ctx.from.first_name}!</b> \n`)
+);
 bot.use(session());
 bot.use(stage.middleware());
 bot.command('register', (ctx) => ctx.scene.enter('registration'))
