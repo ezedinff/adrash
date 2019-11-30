@@ -17,7 +17,7 @@ bot.command('register', (ctx) => {
         ])))
 });
 bot.action('Register',  (ctx, next) => {
-  return ctx.reply('👍 hi ' + ctx).then(next)
+  return ctx.reply('👍 hi ' + ctx.longitude).then(next)
 });
 bot.on('message', (ctx) => {
     return ctx.reply(JSON.stringify(ctx));
