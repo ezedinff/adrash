@@ -17,7 +17,9 @@ bot.command('register', (ctx) => {
             m.callbackButton('Pepsi', 'Pepsi')
         ])))
 });
-
+bot.action('Coke',  (ctx, next) => {
+  return ctx.reply('👍 hi').then(next)
+});
 bot.on('message', (ctx) => {
     return ctx.reply(JSON.stringify(ctx));
 });
