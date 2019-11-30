@@ -1,6 +1,5 @@
 const start = require('./../commands/start');
 const approve = require('./../commands/approve');
-const pending = require('./../commands/pending');
 const disapprove = require('./../commands/disapprove');
 const ndelete = require('./../commands/delete');
 const register = require('./../commands/register');

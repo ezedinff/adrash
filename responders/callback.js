@@ -1,7 +1,7 @@
 const A = require('./../callbacks/A');
 const B = require('./../callbacks/B');
 
-module.exports = (bot, config, moedoo) => (callbackQuery) => {
+module.exports = (bot, config, firebase) => (callbackQuery) => {
   const data = JSON.parse(callbackQuery.data);
 
   switch (data.type) {
@@ -12,7 +12,7 @@ module.exports = (bot, config, moedoo) => (callbackQuery) => {
 
     // add new ATM [finalization]
     case 'B':
-      B(config, bot, callbackQuery, moedoo);
+      B(config, bot, callbackQuery, firebase);
       return;
 
     default:
