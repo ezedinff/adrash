@@ -29,7 +29,7 @@ greeter.enter((ctx) => ctx.reply('we are glad to have u as contributor',
         m.keyboard([
             m.locationRequestButton('Send 📍'),
         ]).oneTime(false)
-    ));
+    )));
 greeter.leave((ctx) => ctx.reply('Bye'));
 greeter.hears(/hi/gi, leave());
 greeter.on('message', (ctx) => ctx.reply('Send hi' + ctx.getChat()));
