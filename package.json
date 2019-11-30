@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/ezedinff/adrash#readme",
   "dependencies": {
-    "telegraf": "^3.34.1"
+    "firebase-admin": "^8.8.0",
+    "moment": "^2.17.1",
+    "node-telegram-bot-api": "^0.27.0"
   },
   "devDependencies": {
     "eslint": "^4.13.1",

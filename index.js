@@ -1,22 +1,14 @@
-const Telegraf = require('telegraf');
-const Extra = require('telegraf/extra');
-const Markup = require('telegraf/markup');
-const bot = new Telegraf('649515347:AAGFcnAi7olLsuxlZa4aQHesCkWcdxCmYAs');
-bot.command('start', ( ctx ) =>
-    ctx.replyWithHTML(`welcome <b>${ctx.from.first_name}!</b> \nwe are glad to have u as contributor`, Extra.HTML().markup(m =>
-        m.keyboard(['/register'])).oneTime(false)
-    )
+/* eslint no-console: 0 */
+const TelegramBot = require('node-telegram-bot-api');
+const message = require('./responders/message');
+const callbackQuery = require('./responders/callback');
 
-);
-bot.command('register', (ctx) => {
-    return ctx.reply('<b>Please Send us the location. by using the send button</b>', Extra.HTML().markup((m) =>
-        m.keyboard([
-            m.locationRequestButton('Send 📍'),
-        ]).oneTime(false)
-    ))
-});
-bot.hears('Send 📍', ctx => ctx.reply('thanks'));
-bot.on('message', (ctx) => {
-    return ctx.reply(`hello ${ctx.from.username}`);
-});
-bot.launch();
+const TOKEN = '649515347:AAGFcnAi7olLsuxlZa4aQHesCkWcdxCmYAs';
+const bot = new TelegramBot(TOKEN);
+const url = 'https://adrashye.herokuapp.com:443';
+const firebase = require('./lib/firebase');
+
+bot.setWebHook(`${url}/bot${TOKEN}`);
+
+bot.on('message', message(bot, {}, firebase));
+bot.on('callback_query', callbackQuery(bot, {}, firebase));
