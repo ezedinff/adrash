@@ -11,19 +11,16 @@ bot.command('start', ( ctx ) =>
     )
 );
 bot.command('register', (ctx) => {
-    ctx.reply('Enter the location? ', Extra.markup((markup) => {
-        return markup.resize()
-            .keyboard([
-                markup.locationRequestButton('Send location')
-            ])
-            .oneTime()
-            .extra()
-    })).then((msg) => {
-       return ctx.reply(
-            strings(ctx.dbchat, 'greetsUsers_message_accepted'),
-            Extra.inReplyTo(msg.message_id)
-        )
-    });
+    ctx.reply('Enter the location? ', Markup
+        .keyboard([
+[            {
+    text: 'Send Location',
+    request_location: true
+}
+]
+        ])
+        .oneTime()
+        .extra())
 });
 bot.action('Send location', (ctx) => ctx.reply(`${JSON.stringify(ctx)}`));
 bot.on('text', (ctx) => {
