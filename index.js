@@ -29,7 +29,7 @@ greeter.enter((ctx) => ctx.reply('we are glad to have u as contributor',
     )));
 greeter.leave((ctx) => ctx.reply('Bye'));
 greeter.hears(/hi/gi, leave());
-greeter.on('message', (ctx) => ctx.reply('Send hi' + ctx.getChat()));
+greeter.on('message', (ctx) => ctx.reply('Send hi' + JSON.stringify(ctx)));
 
 // Create scene manager
 const stage = new Stage();
