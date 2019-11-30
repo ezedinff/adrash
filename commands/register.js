@@ -1,9 +1,9 @@
 module.exports = (bot, msg, firebase) => {
   bot.sendChatAction(msg.chat.id, 'typing');
-
+  console.log(msg);
   firebase.addContributor(msg.from.id)
     .then(() => {
-      bot.sendMessage(msg.chat.id, 'NOOICE!\nYou are now a contributor 🙌🏿\n\nWhenever you send me your location I\'ll ask you if you want to register an 🏧', {
+      bot.sendMessage(msg.chat.id, 'You are now a contributor 🙌🏿\n\nWhenever you send me your location I\'ll ask you if you want to register a place', {
         reply_markup: JSON.stringify({
           keyboard: [
             [{ text: 'Send 📍', request_location: true }],
@@ -13,7 +13,7 @@ module.exports = (bot, msg, firebase) => {
         }),
       });
     }, () => {
-      bot.sendMessage(msg.chat.id, 'DOUBLE NOOICE!\nTho you\'re already a contributor 🙌🏿\n\nPS\nTo unregister send /unregister command', {
+      bot.sendMessage(msg.chat.id, 'you\'re already a contributor 🙌🏿\n\nPS\nTo unregister send /unregister command', {
         reply_markup: JSON.stringify({
           keyboard: [
             [{ text: 'Send 📍', request_location: true }],

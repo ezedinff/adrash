@@ -7,7 +7,11 @@ module.exports = (bot, config, firebase) => (callbackQuery) => {
   switch (data.type) {
     // add new ATM...
     case 'A':
-      A(config, bot, callbackQuery);
+      try {
+          A(config, bot, callbackQuery, firebase);
+      } catch (e) {
+        console.log('hmm');
+      }
       return;
 
     // add new ATM [finalization]
