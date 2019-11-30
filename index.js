@@ -13,11 +13,11 @@ bot.command('start', ( ctx ) =>
 bot.command('register', (ctx) => {
     return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
         m.inlineKeyboard([
-            m.callbackButton({ text: '😇 Register an 🏧 📍', callback_data: JSON.stringify({ type: 'A', l: [ctx.location.latitude, ctx.location.longitude] }) }),
+            m.callbackButton({ text: '😇 Register an 🏧 📍','register'}),
         ])))
 });
-bot.action('Coke',  (ctx, next) => {
-  return ctx.reply('👍 hi').then(next)
+bot.action('😇 Register an 🏧 📍',  (ctx, next) => {
+  return ctx.reply('👍 hi ' + JSON.stringify(ctx)).then(next)
 });
 bot.on('message', (ctx) => {
     return ctx.reply(JSON.stringify(ctx));
