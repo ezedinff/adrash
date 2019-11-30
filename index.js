@@ -16,6 +16,6 @@ bot.command('register', (ctx) => {
     ))
 });
 bot.on('message', (ctx) => {
-    return ctx.reply(JSON.stringify(ctx));
+    return ctx.reply(`hello ${ctx.from.username}`);
 });
 bot.launch();
