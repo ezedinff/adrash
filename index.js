@@ -15,6 +15,7 @@ bot.command('register', (ctx) => {
         ]).oneTime(false)
     ))
 });
+bot.hears('Send 📍', ctx => ctx.reply('thanks'));
 bot.on('message', (ctx) => {
     return ctx.reply(`hello ${ctx.from.username}`);
 });
