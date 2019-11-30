@@ -12,14 +12,15 @@ bot.command('start', ( ctx ) =>
 );
 bot.command('register', (ctx) => {
     return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
-        m.inlineKeyboard([
-            m.callbackButton('Register', 'Register'),
-        ])))
+        m.keyboard([
+            m.locationRequestButton('Send 📍'),
+        ]).oneTime(false).callbackButton('Register', 'Register', false)
+    ))
 });
 bot.action('Register',  (ctx, next) => {
   return ctx.reply('👍 hi ' + ctx.longitude).then(next)
 });
-bot.on('message', (ctx) => {
+bot.on('text', (ctx) => {
     return ctx.reply(JSON.stringify(ctx));
 });
 bot.launch();
