@@ -12,7 +12,7 @@ module.exports = (bot, config, firebase) => (msg) => {
           reply_to_message_id: msg.message_id,
           reply_markup: JSON.stringify({
               inline_keyboard: [
-                  [{ text: '😇 Register an 🏧 📍', callback_data: JSON.stringify({ type: 'A', l: [msg.location.latitude, msg.location.longitude] }) }],
+                  [{ text: '😇 Register a Place', callback_data: JSON.stringify({ type: 'A', l: [msg.location.latitude, msg.location.longitude] }) }],
               ],
           }),
       });
