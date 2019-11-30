@@ -13,10 +13,10 @@ bot.command('start', ( ctx ) =>
 bot.command('register', (ctx) => {
     return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
         m.inlineKeyboard([
-            m.callbackButton('Register', 'register'),
+            m.callbackButton('Register', 'Register'),
         ])))
 });
-bot.action('😇 Register an 🏧 📍',  (ctx, next) => {
+bot.action('Register',  (ctx, next) => {
   return ctx.reply('👍 hi ' + JSON.stringify(ctx)).then(next)
 });
 bot.on('message', (ctx) => {
