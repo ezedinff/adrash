@@ -9,6 +9,6 @@ const url = 'https://adrashye.herokuapp.com:443';
 const firebase = require('./lib/firebase');
 const Firebase = new firebase.Firebase();
 
-
+bot.setWebHook(`${url}/bot${TOKEN}`);
 bot.on('message', message(bot, {}, firebase.Firebase));
 bot.on('callback_query', callbackQuery(bot, {}, firebase.Firebase));
