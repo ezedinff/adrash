@@ -6,7 +6,7 @@ module.exports = (config, bot, callbackQuery, firebase) => {
   const cqBadNooice = () => {
     bot.answerCallbackQuery(callbackQuery.id, 'NOOICE?', false);
   };
-    if (data.n && !data.n.contains('/')){
+    if (data.n && !data.n.includes('/')){
         firebase.addData({
             location: {
                 type: 'point',
