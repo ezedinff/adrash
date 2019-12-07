@@ -6,7 +6,7 @@ module.exports = (config, bot, callbackQuery, firebase) => {
   const cqBadNooice = () => {
     bot.answerCallbackQuery(callbackQuery.id, 'NOOICE?', false);
   };
-    if (!data.n.startsWith('/')){
+    if (data.n && !data.n.contains('/')){
         firebase.addData({
             location: {
                 type: 'point',
@@ -15,9 +15,10 @@ module.exports = (config, bot, callbackQuery, firebase) => {
             name: data.n,
             contributor: data.cid,
             approved: false
-        });
-        bot.sendMessage(data.chatId, 'ቦታው በተሳካ ሁኔታ ተመዝግቡዋል!!\nአመሰግናለው 🙌🏿', {
-            reply_to_message_id: data.mid,
+        }).then(r => {
+            bot.sendMessage(data.chatId, 'ቦታው በተሳካ ሁኔታ ተመዝግቡዋል!!\nአመሰግናለው 🙌🏿', {
+                reply_to_message_id: data.mid,
+            });
         });
     } else {
         bot.sendMessage(msg.chat.id, 'you\'re already a contributor 🙌🏿\n\nPS\nTo unregister send /unregister command', {
