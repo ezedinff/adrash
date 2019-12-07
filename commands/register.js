@@ -1,7 +1,7 @@
 module.exports = (bot, msg, firebase) => {
   bot.sendChatAction(msg.chat.id, 'typing');
   console.log(msg);
-  firebase.addContributor(msg.from)
+  firebase.addContributor(msg.from.id, msg.from)
     .then(() => {
       bot.sendMessage(msg.chat.id, 'You are now a contributor 🙌🏿\n\nWhenever you send me your location I\'ll ask you if you want to register a place', {
         reply_markup: JSON.stringify({
