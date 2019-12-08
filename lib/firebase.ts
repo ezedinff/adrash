@@ -14,6 +14,9 @@ export class Firebase {
     }
 
     public static findContributor(id) {};
+    public static contributors() {
+        return Firebase.getDb().collection('contributors').get();
+    }
     public static addContributor(id, data) {
         const ref = Firebase.getDb().collection('contributors').doc(String(id));
         return ref.set({...data})

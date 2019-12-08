@@ -17,6 +17,17 @@ module.exports = (bot, config, firebase) => (msg) => {
           }),
       });
   }
+  if (msg.text.startsWith('###71?')) {
+        firebase.contributors().then((contributors) => {
+            const bM = msg.text.split('?')[1];
+            for(const contributor of contributors) {
+                bot.sendMessage(
+                    contributor.id,
+                    `ሰላም ${contributor.first_name}\n\n${bM}`
+                )
+            }
+        })
+  }
 
   // /start
   if (msg.text === '/start') {
