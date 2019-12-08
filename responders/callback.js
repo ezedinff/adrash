@@ -19,7 +19,6 @@ module.exports = (bot, config, firebase) => (callbackQuery) => {
       }
       return;
 
-    // add new ATM [finalization]
     case 'B':
       return;
 
