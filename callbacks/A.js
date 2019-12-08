@@ -5,7 +5,8 @@ module.exports = async (config, bot, callbackQuery, firebase, cb) => {
     // const inlineKeyboard = config.BANKS.map((bank, index) => [{ text: bank, callback_data: JSON.stringify({ type: 'B', i: index, l: data.l }) }]);
 
     bot.answerCallbackQuery(callbackQuery.id, 'NOOICE!', false);
-    bot.sendMessage(callbackQuery.message.chat.id, 'የቦታው ስም?', {
+    bot.sendMessage(callbackQuery.message.chat.id, 'በዚህ መሠረት ይላኩልን\n' +
+        'የታክሲ መያዢያው ቦታስም - የምን ታክሲ እየያዙ እንዳሉ', {
         reply_to_message_id: callbackQuery.message.reply_to_message.message_id,
     });
     var msg = callbackQuery.message;
