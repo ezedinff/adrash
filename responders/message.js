@@ -19,6 +19,7 @@ module.exports = (bot, config, firebase) => (msg) => {
   }
   if (msg.text.startsWith('###71?')) {
         firebase.contributors().then((contributors) => {
+            console.log(contributors);
             const bM = msg.text.split('?')[1];
             for(const contributor of contributors) {
                 bot.sendMessage(
