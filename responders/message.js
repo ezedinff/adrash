@@ -25,7 +25,7 @@ module.exports = (bot, config, firebase) => (msg) => {
                 bot.sendMessage(
                     doc.id,
                     `ሰላም ${cont.first_name}\n\n${bM}`
-                )
+                ).then(r => console.log(r)).catch(err => console.log(err))
             });
         });
   }
