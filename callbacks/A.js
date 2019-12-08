@@ -12,6 +12,7 @@ module.exports = async (config, bot, callbackQuery, firebase, cb) => {
         bot.once('message', (msg) => {
             if (msg && msg.text !== '😇 Register a Place') {
                 const t = msg.text ? msg.text : '';
+                console.log(t);
                 if (t.split('-').length < 2) {
                     bot.sendMessage(callbackQuery.message.chat.id, 'እባክዎን በድጋሚ በዚህ መሠረት ይላኩልን\n' +
                         'የታክሲ መያዢያው ቦታስም - የምን ታክሲ እየያዙ እንዳሉ', {
