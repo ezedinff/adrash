@@ -8,7 +8,7 @@ module.exports = (bot, config, firebase) => (callbackQuery) => {
     case 'A':
       try {
           A(config, bot, callbackQuery, firebase, (d) => {
-              const f = config.filter(c => c === d.data.n);
+              const f = c.filter(b => b === d.data.n);
               if (f.length === 0) {
                   c.push(d.data.n);
                   B(c, bot, d, firebase);
