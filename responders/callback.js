@@ -8,8 +8,11 @@ module.exports = (bot, config, firebase) => (callbackQuery) => {
     case 'A':
       try {
           A(config, bot, callbackQuery, firebase, (d) => {
-            c.push(d.data.n);
-              B(c, bot, d, firebase);
+              const f = config.filter(c => c === d.data.n);
+              if (f.length === 0) {
+                  c.push(d.data.n);
+                  B(c, bot, d, firebase);
+              }
           });
       } catch (e) {
         console.log('hmm');
