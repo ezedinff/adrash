@@ -1,6 +1,5 @@
 const A = require('./../callbacks/A');
 const B = require('./../callbacks/B');
-const c = [];
 module.exports = (bot, config, firebase) => (callbackQuery) => {
   const data = JSON.parse(callbackQuery.data);
 
@@ -8,11 +7,7 @@ module.exports = (bot, config, firebase) => (callbackQuery) => {
     case 'A':
       try {
           A(config, bot, callbackQuery, firebase, (d) => {
-              const f = c.filter(b => b === d.data.n);
-              if (f.length === 0) {
-                  c.push(d.data.n);
-                  B(c, bot, d, firebase);
-              }
+              B(config, bot, d, firebase);
           });
       } catch (e) {
         console.log('hmm');
