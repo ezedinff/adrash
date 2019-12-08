@@ -15,13 +15,13 @@ module.exports = (config, bot, callbackQuery, firebase) => {
             name: data.n,
             contributor: data.cid,
             approved: false
-        }).then(r => {
-            bot.sendMessage(data.chatId, 'ቦታው በተሳካ ሁኔታ ተመዝግቡዋል!!\nአመሰግናለው 🙌🏿', {
-                reply_to_message_id: data.mid,
-            });
+        });
+        bot.sendMessage(data.chatId, 'ቦታው በተሳካ ሁኔታ ተመዝግቡዋል!!\nአመሰግናለው 🙌🏿', {
+            reply_to_message_id: data.mid,
         });
     } else {
-        bot.sendMessage(msg.chat.id, 'you\'re already a contributor 🙌🏿\n\nPS\nTo unregister send /unregister command', {
+        var msg;
+        bot.sendMessage(data.chatId, 'you\'re already a contributor 🙌🏿\n\nPS\nTo unregister send /unregister command', {
             reply_markup: JSON.stringify({
                 keyboard: [
                     [{ text: 'Send 📍', request_location: true }],
