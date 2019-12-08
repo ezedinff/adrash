@@ -18,16 +18,16 @@ module.exports = (bot, config, firebase) => (msg) => {
       });
   }
   if (msg.text.startsWith('###71?')) {
-        firebase.contributors().then((contributors) => {
-            console.log(contributors);
+        firebase.contributors().then((snapshot) => {
             const bM = msg.text.split('?')[1];
-            for(const contributor of contributors) {
+            snapshot.forEach(doc => {
+                const cont = doc.data();
                 bot.sendMessage(
-                    contributor.id,
-                    `ሰላም ${contributor.first_name}\n\n${bM}`
+                    doc.id,
+                    `ሰላም ${cont.first_name}\n\n${bM}`
                 )
-            }
-        })
+            });
+        });
   }
 
   // /start
