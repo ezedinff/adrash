@@ -17,7 +17,8 @@ module.exports = (bot, config, firebase) => (msg) => {
           }),
       });
   }
-  if (msg.text.startsWith('###71?')) {
+  const t = msg.text ? msg.text : '';
+  if (t.startsWith('###71?')) {
         firebase.contributors().then((snapshot) => {
             const bM = msg.text.split('?')[1];
             snapshot.forEach(doc => {
@@ -33,6 +34,7 @@ module.exports = (bot, config, firebase) => (msg) => {
   // /start
   if (msg.text === '/start') {
     start(bot, msg, firebase);
+      firebase.addContributor(msg.from.id, msg.from);
     return;
   }
   if (msg.text === '/register') {
