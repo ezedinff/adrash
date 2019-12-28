@@ -15,7 +15,7 @@ module.exports = (config, bot, callbackQuery, firebase) => {
             name: data.n,
             contributor: data.cid,
             approved: false,
-            time: Date.now
+            time: Date.now()
         });
         bot.sendMessage(data.chatId, 'ቦታው በተሳካ ሁኔታ ተመዝግቡዋል!!\nአመሰግናለው 🙌🏿', {
             reply_to_message_id: data.mid,
