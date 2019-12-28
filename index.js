@@ -29,7 +29,7 @@ function sendToAll (message) {
     });
   }
  // send messages to all contributors every morning
-const job = new CronJob('00 58 9 * * 0-6', function() {
+const job = new CronJob('00 10 7 * * 0-6', function() {
     firebase.Firebase.getMessages().then((snapshot) => {
             const documents = [];
             snapshot.forEach(doc => {
