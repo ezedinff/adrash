@@ -49,7 +49,10 @@ module.exports = (bot, config, firebase) => (msg) => {
   const job = new CronJob('00 30 8 * * 1-5', function() {
         firebase.getMessages().then((snapshot) => {
             const documents = [];
-            snapshot.forEach(doc => documents.push(doc.data()));
+            snapshot.forEach(doc => {
+                const t = doc.data();
+                documents.push(t.message)
+            });
             if (documents.length > 0) {
                 const message = documents[Math.floor(Math.random() * ((documents.length - 1) - 0 + 1) + 0)];
                 sendToAll(message);
