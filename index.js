@@ -58,4 +58,4 @@ setInterval(() => {
                 sendToAll(message);
             }
         })
-  }, 1000);
+  }, day);
