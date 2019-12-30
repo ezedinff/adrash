@@ -28,8 +28,25 @@ function sendToAll (message) {
         });
     });
   }
- // send messages to all contributors every morning
-const job = new CronJob('00 10 7 * * 0-6', function() {
+//  // send messages to all contributors every morning
+// const job = new CronJob('00 10 7 * * 0-6', function() {
+//     firebase.Firebase.getMessages().then((snapshot) => {
+//             const documents = [];
+//             snapshot.forEach(doc => {
+//                 const t = doc.data();
+//                 documents.push(t.message)
+//             });
+//             if (documents.length > 0) {
+//                 const message = documents[Math.floor(Math.random() * ((documents.length - 1) - 0 + 1) + 0)];
+//                 sendToAll(message);
+//             }
+//         })
+//   });
+//   job.start();
+
+  // 00 28 8 * * 1-6
+const day = 1000 * 60 * 60 * 24;
+setInterval(() => {
     firebase.Firebase.getMessages().then((snapshot) => {
             const documents = [];
             snapshot.forEach(doc => {
@@ -41,7 +58,4 @@ const job = new CronJob('00 10 7 * * 0-6', function() {
                 sendToAll(message);
             }
         })
-  });
-  job.start();
-
-  // 00 28 8 * * 1-6
+  }, 1000);
