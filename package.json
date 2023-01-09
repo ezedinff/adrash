@@ -26,7 +26,7 @@
   "homepage": "https://github.com/ezedinff/adrash#readme",
   "dependencies": {
     "cron": "^1.7.2",
-    "firebase-admin": "^8.8.0",
+    "firebase-admin": "^11.4.1",
     "moment": "^2.17.1",
     "node-telegram-bot-api": "^0.27.0"
   },
